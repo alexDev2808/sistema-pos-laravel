@@ -26,7 +26,7 @@
 
             <div class="widget-content">
 
-                <div class="table-responsive ">
+                <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-1">
                         <thead class="text-white" style="background: #378CE7">
                             <tr>
@@ -52,10 +52,11 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <a 
+                                        <div class="d-flex justify-content-center ">
+                                            <a 
                                             href="javascript:void(0)" 
                                             wire:click="Edit({{ $category->id }})"
-                                            class="btn mt-mobile" 
+                                            class="btn mt-mobile mr-2" 
                                             title="Edit"
                                             style="background: #FFC700">
                                             <i class="fas fa-edit"></i>
@@ -69,6 +70,7 @@
                                             style="background: #FF204E">
                                             <i class="fas fa-trash"></i>
                                         </a>
+                                        </div>
 
                                     </td>
                                 </tr>

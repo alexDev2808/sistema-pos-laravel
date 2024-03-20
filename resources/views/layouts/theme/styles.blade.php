@@ -45,6 +45,14 @@
         }
     }
 
+    .sidebar-theme #compactSidebar {
+        background: #5356FF!important;
+    }
+
+    .header-container .sidebarCollapse {
+        color: #5356FF!important;
+    }
+
 </style>
 
 @livewireStyles
