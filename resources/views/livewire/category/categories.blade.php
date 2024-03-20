@@ -19,7 +19,9 @@
                     </li>
                 </ul>
             </div>
-            Search
+            
+            {{-- SearchBox --}}
+            @include('common.searchBox')
 
 
             <div class="widget-content">
@@ -72,7 +74,9 @@
 
                         </tbody>
                     </table>
-                    Pagination
+                    
+                    {{-- Paginacion --}}
+                    {{ $categories->links() }}
                 </div>
 
             </div>
