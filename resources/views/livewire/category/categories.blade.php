@@ -44,7 +44,7 @@
                                     <td>
                                         <span>
                                             <img 
-                                                src="{{ asset('storage/categorias/' . $category->image ) }}" 
+                                                src="{{ asset('storage/categorias/' . $category->imagen ) }}" 
                                                 alt="Img de ejemplo" 
                                                 height="70" 
                                                 width="80"
@@ -143,7 +143,7 @@
             cancelButtonText: 'Cerrar',
             cancelButtonColor: '#FFF',
             confirmButtonText: 'Aceptar',
-            confirmButtonColor: '#5356FF'
+            confirmButtonColor: '#FF204E'
         }).then(function( res ) {
             if( res.value ){
                 window.livewire.emit( 'deleteRow', id )
