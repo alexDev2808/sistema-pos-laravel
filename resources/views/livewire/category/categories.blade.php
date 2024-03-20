@@ -44,7 +44,7 @@
                                     <td class="text-center">
                                         <span>
                                             <img 
-                                                src="{{ asset('storage/categories/' . $category->image ) }}" 
+                                                src="{{ asset('storage/categorias/' . $category->image ) }}" 
                                                 alt="Img de ejemplo" 
                                                 height="70" 
                                                 width="80"

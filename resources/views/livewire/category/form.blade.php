@@ -27,7 +27,7 @@
                     type="file"
                     class="custom-file-input form-control "
                     wire:model="image"
-                    accept="image/x-png,image/gif,image/jpeg"
+                    accept="image/png,image/gif,image/jpeg"
                     >
                 <label class="custom-file-label">Imagen {{ $image }}</label>
                 @error('image')

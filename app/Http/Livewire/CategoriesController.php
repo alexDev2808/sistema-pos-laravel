@@ -15,6 +15,7 @@ class CategoriesController extends Component
 
     public $name, $search, $image, $selected_id, $pageTitle, $componentName;
     private $pagination = 5;
+    private $customFileName;
 
     public function mount(){
         $this->pageTitle = 'Listado';
@@ -50,7 +51,42 @@ class CategoriesController extends Component
 
     }
 
+    public function Store() {
+        
+        $rules = [
+            'name' => 'required|unique:categories|min:3'
+        ];
+
+        $messages = [
+            'name.required' => 'El nombre de la categoria es requerido',
+            'name.unique' => 'Ya existe la categoria',
+            'name.min' => 'Nombre no valido, minimo 3 caracteres',
+        ];
+
+        $this->validate( $rules, $messages );
+
+        $category = Category::create([
+            'name' => $this->name
+        ]);
+
+        if( $this->image ) {
+            $customFileName = uniqid() . '_.' . $this->image->extension();
+            $this->image->storeAs('public/categorias', $customFileName);
+            $category->image = $customFileName;
+            $category->save();
+        }
+
+        $this->resetUI();
+        $this->emit('category-added','Categoria agregada');
+
+    }
+
     public function resetUI() {
+
+        $this->name = '';
+        $this->image = null;
+        $this->search = '';
+        $this->selected_id = 0;
 
     }
 
