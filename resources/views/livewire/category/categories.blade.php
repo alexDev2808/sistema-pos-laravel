@@ -11,7 +11,7 @@
                         <a 
                             href="javascript:void(0)" 
                             class="tabmenu" 
-                            data-toggle="modal " 
+                            data-toggle="modal" 
                             data-target="#theModal"
                             style="background: #5356FF">
                             Agregar
@@ -80,7 +80,8 @@
         </div>
     </div>
 
-    Include Form
+    {{-- Formulario --}}
+    @include('livewire.category.form')
 
 </div>
 
