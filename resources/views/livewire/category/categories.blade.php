@@ -32,7 +32,7 @@
                             <tr>
                                 <th class="table-th text-white ">Descripcion</th>
                                 <th class="table-th text-white ">Imagen</th>
-                                <th class="table-th text-white ">Acciones</th>
+                                <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +41,7 @@
                                     <td>
                                         <h6>{{ $category->name }}</h6>
                                     </td>
-                                    <td class="text-center">
+                                    <td>
                                         <span>
                                             <img 
                                                 src="{{ asset('storage/categorias/' . $category->image ) }}" 
@@ -60,14 +60,16 @@
                                             style="background: #FFC700">
                                             <i class="fas fa-edit"></i>
                                         </a>
+
                                         <a 
                                             href="javascript:void(0)" 
-                                            onclick="Confirm('{{ $category->id }}')"
+                                            onclick="Confirm('{{ $category->id }}', '{{ $category->products->count() }}')"
                                             class="btn text-white" 
                                             title="Delete"
                                             style="background: #FF204E">
                                             <i class="fas fa-trash"></i>
                                         </a>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -120,7 +122,19 @@
 
     });
 
-    function Confirm( id ) {
+    function Confirm( id, products ) {
+        
+        if( products > 0 ) {
+            swal({
+                title: 'Advertencia',
+                text: `No se puede eliminar la categoria porque tiene ${products} productos asociados`,
+                type: 'warning',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#FFC700'
+            });
+            return;
+        }
+
         swal({
             title: 'Confirmar',
             text: 'Confirmas eliminar el registro?',
