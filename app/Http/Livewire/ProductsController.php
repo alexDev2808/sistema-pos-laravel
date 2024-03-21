@@ -55,7 +55,17 @@ class ProductsController extends Component
     }
 
     public function resetUI(){
-        
+        $this->name = '';
+        $this->barcode = '';
+        $this->price = '';
+        $this->cost = '';
+        $this->stock = '';
+        $this->alerts = '';
+        $this->search = '';
+        $this->category_id = 'Elegir';
+        $this->image = null;
+        $this->selected_id = 0;
+
     }
 
     public function Store() {
@@ -175,6 +185,25 @@ class ProductsController extends Component
 
     }
 
+    protected $listeners = [
+        'deleteRow' => 'Destroy',
+    ];
+
+
+    public function Destroy( Product $product ) {
+
+        $imageTemp = $product->image;
+        $product->delete();
+
+        if( $imageTemp != null ) {
+            if( file_exists( 'storage/productos/' . $imageTemp ) ) {
+                unlink( 'storage/productos/'. $imageTemp );
+            }
+        }
+
+        $this->resetUI();
+        $this->emit('product-deleted', 'Producto eliminado');
+    }
 
 
 }

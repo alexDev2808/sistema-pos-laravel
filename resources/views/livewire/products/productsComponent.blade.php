@@ -134,17 +134,6 @@
 
     function Confirm( id ) {
         
-        // if( products > 0 ) {
-        //     swal({
-        //         title: 'Advertencia',
-        //         text: `No se puede eliminar la categoria porque tiene ${products} productos asociados`,
-        //         type: 'warning',
-        //         confirmButtonText: 'Aceptar',
-        //         confirmButtonColor: '#FFC700'
-        //     });
-        //     return;
-        // }
-
         swal({
             title: 'Confirmar',
             text: 'Confirmas eliminar el registro?',
