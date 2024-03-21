@@ -4,7 +4,7 @@
 
     <div class="col-sm-12 col-md-8">
         <div class="form-group">
-            <label>Nombre</label>
+            <label class="text-secondary font-weight-bolder">Nombre</label>
             <input 
                 type="text"
                 wire:model.lazy="name"
@@ -19,7 +19,7 @@
 
     <div class="col-sm-12 col-md-4">
         <div class="form-group">
-            <label>Codigo</label>
+            <label class="text-secondary font-weight-bolder">Codigo</label>
             <input 
                 type="text"
                 wire:model.lazy="barcode"
@@ -34,7 +34,7 @@
 
     <div class="col-sm-12 col-md-4">
         <div class="form-group">
-            <label>Costo</label>
+            <label class="text-secondary font-weight-bolder">Costo</label>
             <input 
                 type="text"
                 wire:model.lazy="cost"
@@ -50,7 +50,7 @@
 
     <div class="col-sm-12 col-md-4">
         <div class="form-group">
-            <label>Precio</label>
+            <label class="text-secondary font-weight-bolder">Precio</label>
             <input 
                 type="text"
                 wire:model.lazy="price"
@@ -66,7 +66,7 @@
 
     <div class="col-sm-12 col-md-4">
         <div class="form-group">
-            <label>Stock</label>
+            <label class="text-secondary font-weight-bolder">Stock</label>
             <input 
                 type="number"
                 wire:model.lazy="stock"
@@ -79,9 +79,9 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-6">
         <div class="form-group">
-            <label>Alertas/Inv. Minimo</label>
+            <label class="text-secondary font-weight-bolder">Alertas/Inv. Minimo</label>
             <input 
                 type="number"
                 wire:model.lazy="alerts"
@@ -94,21 +94,21 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-6">
         <div class="form-group">
-            <label>Categoria</label>
+            <label class="text-secondary font-weight-bolder">Categoria</label>
             <select class="form-control">
                 <option value="Elegir" disabled>Elegir</option>
                 @foreach ( $categories as $category )
-                    <option value="{{ $category->id }}" disabled>{{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-md-8 mt-3 ">
+        <label class="text-secondary font-weight-bolder">Imagen: </label>
         <div class="form-group custom-file">
-            <label>Imagen</label>
             <input 
                 type="file"
                 wire:model="image"

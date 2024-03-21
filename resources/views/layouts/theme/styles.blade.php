@@ -1,7 +1,7 @@
 <link href="{{ asset('assets/css/loader.css') }}" rel="stylesheet" type="text/css" />
 <script src="{{ asset('assets/js/loader.js') }}"></script>
 <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
-<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/structure.css') }}" rel="stylesheet" type="text/css" class="structure" />
 
@@ -16,6 +16,10 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/widgets/modules-widgets.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/forms/theme-checkbox-radio.css') }}">
+
+<link href="{{ asset('plugins/animate/animate.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 

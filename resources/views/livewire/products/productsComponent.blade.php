@@ -4,14 +4,14 @@
         <div class="widget widget-chart-one">
             <div class="widget-heading">
                 <h4 class="card-title">
-                    <b>{{ $componentName }}| {{ $pageTitle }}</b>
+                    <b>{{ $componentName }} | {{ $pageTitle }}</b>
                 </h4>
                 <ul class="tabs tab-pills">
                     <li>
                         <a 
                             href="javascript:void(0)" 
-                            class="tabmenu bg-dark " 
-                            data-toggle="modal " 
+                            class="tabmenu p-2 " 
+                            data-toggle="modal" 
                             data-target="#theModal" 
                             style="background: #5356FF"
                             >
@@ -25,7 +25,7 @@
 
             <div class="widget-content">
 
-                <div class="table-responsive ">
+                <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-1">
                         <thead class="text-white" style="background: #378CE7">
                             <tr>
@@ -35,8 +35,8 @@
                                 <th class="table-th text-white ">Precio</th>
                                 <th class="table-th text-white ">Stock</th>
                                 <th class="table-th text-white ">Inv. min</th>
-                                <th class="table-th text-white ">Imagen</th>
-                                <th class="table-th text-white ">Acciones</th>
+                                <th class="table-th text-white text-center ">Imagen</th>
+                                <th class="table-th text-white text-center  ">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,7 +65,7 @@
                                             <a 
                                                 href="javascript:void(0)"
                                                 wire:click.prevent="Edit({{ $product->id }})"
-                                                class="btn btn-dark mt-mobile mr-2"
+                                                class="btn mt-mobile mr-2"
                                                 title="Edit"
                                                 style="background: #FFC700"
                                                 >
