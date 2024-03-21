@@ -7,7 +7,7 @@ use Livewire\Component;
 class ProductsController extends Component
 {
 
-    public $componentName, $pageTitle, $products = ['1', '2']; 
+    public $componentName, $pageTitle; 
 
     public function render()
     {
