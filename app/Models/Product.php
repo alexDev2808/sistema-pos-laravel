@@ -23,4 +23,19 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    // Accesor imagen
+    public function getImagenAttribute() {
+        
+        if( $this->image == null ) {
+            return 'noimg.png';
+        }
+
+        if( file_exists('storage/productos/' . $this->image) ) {
+            return $this->image;
+        } else {
+            return 'noimg.png';
+        }
+
+    }
 }

@@ -52,7 +52,7 @@
                                     <td class="text-center">
                                         <span>
                                             <img 
-                                                src="{{ asset( 'storage/products/' . $product->image ) }}" 
+                                                src="{{ asset( 'storage/productos/' . $product->imagen ) }}" 
                                                 alt="Imagen de {{ $product->name }}" 
                                                 height="70" 
                                                 width="80" 

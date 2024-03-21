@@ -57,4 +57,50 @@ class ProductsController extends Component
     public function resetUI(){
         
     }
+
+    public function Store() {
+        $rules = [
+            'name' => 'required|unique:products|min:3',
+            'cost' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'alerts' => 'required',
+            'category_id' => 'required|not_in:Elegir'
+        ];
+
+        $messages = [
+            'name.required'=> 'El nombre es requerido',
+            'name.unique' => 'Ya existe ese nombre',
+            'name.min' => 'El nombre debe tener minimo 3 caracteres',
+            'cost.required' => 'El costo es requerido',
+            'price.required' => 'El precio es requerido',
+            'stock.required' => 'El stock es requerido',
+            'alerts.required' => 'El valor minimo de existencias es requerido',
+            'category_id.not_in' => 'Elige un nombre diferente a Elegir',
+        ];
+
+        $this->validate($rules, $messages);
+
+        $product = Product::create([
+            'name' => $this->name,
+            'cost' => $this->cost,
+            'price'=> $this->price,
+            'barcode' => $this->barcode,
+            'stock' => $this->stock,
+            'alerts' => $this->alerts,
+            'category_id' => $this->category_id,
+        ]);
+
+        if( $this->image ) {
+            $customFileName = uniqid() . '_.' . $this->image->extension();
+            $this->image->storeAs('public/productos', $customFileName);
+            $product->image = $customFileName;
+
+            $product->save();
+        }
+
+        $this->resetUI();
+        $this->emit('product-added', 'Producto agregado');
+
+    }
 }
