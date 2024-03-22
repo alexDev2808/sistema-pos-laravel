@@ -51,12 +51,17 @@
                                     <td><h6>{{ $product->alerts }}</h6></td>
                                     <td class="text-center">
                                         <span>
-                                            <img 
-                                                src="{{ asset( 'storage/productos/' . $product->imagen ) }}" 
-                                                alt="Imagen de {{ $product->name }}" 
-                                                height="70" 
-                                                width="80" 
-                                                class="rounded">
+                                            <a 
+                                                href="javascript:void(0)"
+                                                wire:click.prevent="ModalImg({{ $product->id }})"
+                                                >
+                                                <img 
+                                                    src="{{ asset( 'storage/productos/' . $product->imagen ) }}" 
+                                                    alt="Imagen de {{ $product->name }}" 
+                                                    height="70" 
+                                                    width="80" 
+                                                    class="img-thumbnail ">
+                                            </a>                                           
                                         </span>
                                     </td>
                                     <td class="text-center">
@@ -99,6 +104,7 @@
         </div>
     </div>
 
+    @include('livewire.products.modalImg')
     @include('livewire.products.form')
 
 </div>
@@ -125,6 +131,10 @@
 
         window.livewire.on('show-modal', msg => {
             $('#theModal').modal('show');
+        })
+
+        window.livewire.on('show-modal-img', msg => {
+            $('#theModalImg').modal('show');
         })
 
         $('#theModal').on('hidden.bs.modal', function(e) {

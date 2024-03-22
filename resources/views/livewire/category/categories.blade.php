@@ -43,12 +43,18 @@
                                     </td>
                                     <td>
                                         <span>
-                                            <img 
-                                                src="{{ asset('storage/categorias/' . $category->imagen ) }}" 
-                                                alt="Imagen de la categoria {{ $category->name }}" 
-                                                height="70" 
-                                                width="80"
-                                                class="rounded">
+                                            <a 
+                                                href="javascript:void(0)"
+                                                wire:click.prevent="ModalImg({{ $category->id }})"
+                                                >
+                                                    <img 
+                                                        src="{{ asset('storage/categorias/' . $category->imagen ) }}" 
+                                                        alt="Imagen de la categoria {{ $category->name }}" 
+                                                        height="70" 
+                                                        width="80"
+                                                        class="rounded img-thumbnail ">
+                                            </a>
+
                                         </span>
                                     </td>
                                     <td class="text-center">
@@ -88,6 +94,7 @@
         </div>
     </div>
 
+    @include('livewire.category.modalImg')
     {{-- Formulario --}}
     @include('livewire.category.form')
 
@@ -116,6 +123,10 @@
 
         window.livewire.on('show-modal', msg => {
             $('#theModal').modal('show');
+        })
+
+        window.livewire.on('show-modal-img', msg => {
+            $('#theModalImg').modal('show');
         })
 
         $('#theModal').on('hidden.bs.modal', function(e) {

@@ -15,7 +15,7 @@ class ProductsController extends Component
     use WithFileUploads;
 
     public $name, $barcode, $cost, $price, $stock, $alerts, $category_id, $image;
-    public $componentName, $pageTitle, $search, $selected_id; 
+    public $componentName, $pageTitle, $search, $selected_id, $img_path, $img_name; 
     public $pagination = 5;
 
     public function paginationView(){
@@ -66,6 +66,14 @@ class ProductsController extends Component
         $this->image = null;
         $this->selected_id = 0;
 
+    }
+
+    public function ModalImg( Product $product ) {
+
+        $this->img_path = 'storage/productos/' . $product->imagen;
+        $this->img_name = $product->name;
+        
+        $this->emit('show-modal-img', 'Show modal img');
     }
 
     public function Store() {

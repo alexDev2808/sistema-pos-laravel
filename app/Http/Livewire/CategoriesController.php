@@ -13,7 +13,7 @@ class CategoriesController extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $name, $search, $image, $selected_id, $pageTitle, $componentName;
+    public $name, $search, $image, $selected_id, $pageTitle, $componentName, $img_path, $img_name;
     private $pagination = 5;
     private $customFileName;
 
@@ -37,6 +37,14 @@ class CategoriesController extends Component
         return view('livewire.category.categories', [ 'categories' => $data ])
                 ->extends('layouts.theme.app')
                 ->section('content');
+    }
+
+    public function ModalImg( Category $category ) {
+
+        $this->img_path = 'storage/categorias/' . $category->imagen;
+        $this->img_name = $category->name;
+        
+        $this->emit('show-modal-img', 'Show modal img');
     }
 
     public function Edit( $id ) {
