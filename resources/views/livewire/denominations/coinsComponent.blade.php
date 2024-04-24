@@ -48,11 +48,11 @@
                                     <td>
                                         <span>
                                             <img 
-                                                src="{{ asset('storage/monedas/' . $coin->imagen ) }}" 
+                                                src="{{ asset('storage/' . $coin->imagen ) }}" 
                                                 alt="Imagen de la moneda" 
                                                 height="70" 
                                                 width="80"
-                                                class="rounded">
+                                                class="img-thumbnail">
                                         </span>
                                     </td>
                                     <td class="text-center">
