@@ -104,4 +104,66 @@ class PosController extends Component
 
         $this->emit('scan-ok', $title);
     }
+
+    // remplazar por completo
+    public function updateQty( $product_id, $quantity = 1) {
+
+        $title = '';
+        $product = Product::find( $product_id );
+        $exists = Cart::get( $product_id );
+
+        if ( $exists ) {
+            $title = 'Cantidad actualizada';
+        } else {
+            $title = 'Producto agregado';
+        }
+
+
+        if( $exists ) {
+
+            if ( $product->stock < $quantity ) {
+                $this->emit('no-stock', 'Stock insuficiente :(');
+                return;
+            }
+        }
+
+        $this->removeItem( $product_id );
+
+        if ( $quantity > 0 ) {
+            Cart::add( $product->id, $product->name, $product->price, $quantity, $product->image );
+
+            $this->total = Cart::getTotal();
+            $this->itemsQuantity = Cart::getTotalQuantity();
+
+            $this->emit('scan-ok', $title);
+        } 
+        
+    }
+
+    public function removeItem( $product_id ) {
+
+        Cart::remove( $product_id );
+
+        $this->total = Cart::getTotal();
+        $this->itemsQuantity = Cart::getTotalQuantity();
+
+        $this->emit('scan-ok', 'Producto eliminado');
+    }
+
+    public function decreaseQty( $product_id ) {
+
+        $item = Cart::get( $product_id );
+        Cart::remove( $product_id );
+
+        $newQty = ($item->quantity) - 1;
+
+        if( $newQty > 0) {
+            Cart::add($item->id, $item->name, $item->price, $newQty, $item->attributes[0] );
+        }
+
+        $this->total = Cart::getTotal();
+        $this->itemsQuantity = Cart::getTotalQuantity();
+
+        $this->emit('scan-ok', 'Cantidad actualizada');
+    }
 }
