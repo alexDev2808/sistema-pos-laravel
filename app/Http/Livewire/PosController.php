@@ -75,4 +75,33 @@ class PosController extends Component
 
         return $exists ? true : false;
     }
+
+    public function increaseQty( $product_id, $quantity = 1) {
+
+        $title = '';
+        $product = Product::find( $product_id );
+        $exists = Cart::get( $product_id );
+
+        if ( $exists ) {
+            $title = 'Cantidad actualizada';
+        } else {
+            $title = 'Producto agregado';
+        }
+
+        if ( $exists ) {
+            
+            if ( $product->stock < ($quantity + $exists->$quantity ) ) {
+                $this->emit('no-stock', 'Stock insuficiente :(');
+                return;
+            }
+        }
+
+        // add verifica si existe y actualiza, sino agrega
+        Cart::add( $product->id, $product->name, $product->price, $quantity, $product->image);
+
+        $this->total = Cart::getTotal();
+        $this->itemsQuantity = Cart::getTotalQuantity();
+
+        $this->emit('scan-ok', $title);
+    }
 }
