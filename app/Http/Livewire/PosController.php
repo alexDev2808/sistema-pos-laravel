@@ -7,7 +7,7 @@ use Livewire\Component;
 class PosController extends Component
 {
 
-    public $cart = [], $total = 0;
+    public $cart = [], $total = 0, $itemsQuantity = 0;
 
     public function render()
     {
