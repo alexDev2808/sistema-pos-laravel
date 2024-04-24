@@ -20,6 +20,10 @@
 <link href="{{ asset('plugins/animate/animate.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 
+{{-- Ventas --}}
+<link href="{{ asset('assets/css/apps/scrumboard.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/css/apps/notes.css') }}" rel="stylesheet" type="text/css" />
+
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
