@@ -59,7 +59,7 @@
 
 						<div class="row justify-content-between mt-5">
 							<div class="col-sm-12 col-md-12 col-lg-6">
-								@if($total >= 0)
+								@if($total > 0)
                                     <button 
                                         onclick="Confirm('','clear-cart','¿Confirma eliminar carrito?')" 
                                         class="btn mtmobile"
@@ -71,7 +71,7 @@
 							</div>
 
 							<div class="col-sm-12 col-md-12 col-lg-6">
-								@if($efectivo>= $total && $total >= 0)
+								@if($efectivo > $total && $total >= 0)
 								    <button 
                                         wire:click.prevent="save-sale" 
                                         class="btn btn-md btn-block font-weight-bold"
