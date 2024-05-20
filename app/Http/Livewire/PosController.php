@@ -50,6 +50,7 @@ class PosController extends Component
     ];
 
     public function ScanCode( $barcode, $quantity = 1 ) {
+
         $product = Product::where('barcode', $barcode)->first();
 
         if ( $product == null || empty($product) ) {
